@@ -1,10 +1,12 @@
+<script setup></script>
+
 <template>
   <div class="about">
     <h1>About</h1>
   </div>
   <Doughnut id="my-chart-id" :options="chartOptions" :data="chartData" />
+  <button @click="getpost">ggg</button>
 </template>
-
 <script>
 import { Doughnut } from "vue-chartjs";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -29,6 +31,17 @@ export default {
         responsive: true,
       },
     };
+  },
+  methods: {
+    getpost: async function () {
+      const response = await fetch(
+        "https://data.cityofnewyork.us/resource/rsgh-akpg.json"
+      );
+      const dogs = await response.json();
+      dogs.forEach((e) => {
+        console.log(e.breed);
+      });
+    },
   },
 };
 </script>
