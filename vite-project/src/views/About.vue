@@ -14,6 +14,7 @@
 <script>
 import { Doughnut } from "vue-chartjs";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { ref, reactive } from "vue";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -24,45 +25,52 @@ export default {
   data() {
     return {
       load: false,
-      chartData: {
-        labels: ["Pit Bull", "Unknown", "Shih Tzu", "Chihuahua"],
-        datasets: [
-          {
-            backgroundColor: ["#41B883", "#E46651", "#00D8FF", "#a35cff"],
-            data: [],
-          },
-        ],
-      },
+      chartData: null,
       chartOptions: {
         responsive: true,
       },
     };
   },
-  async mounted() {
-    const response = await fetch(
-      "https://data.cityofnewyork.us/resource/rsgh-akpg.json"
-    );
-    const dogs = await response.json();
-    const pitbull = dogs.filter((e) => {
-      e.breed === "Pit Bull";
-    });
-    this.chartData.datasets[0].data.push(pitbull.length);
-    const unknown = dogs.filter((e) => {
-      e.breed === "UNKNOWN";
-    });
-    this.chartData.datasets[0].data.push(unknown.length);
-    const shihtzu = dogs.filter((e) => {
-      e.breed === "Shih Tzu";
-    });
-    this.chartData.datasets[0].data.push(shihtzu.length);
-    const chihuahua = dogs.filter((e) => {
-      e.breed === "Chihuahua";
-    });
-    this.chartData.datasets[0].data.push(chihuahua.length);
 
-    this.load = true;
+  async mounted() {
+    try {
+      const response = await fetch(
+        "https://data.cityofnewyork.us/resource/rsgh-akpg.json"
+      );
+      const dogs = await response.json();
+      const pitbull = dogs.filter((e) => {
+        e.breed === "Pit Bull";
+      });
+      const unknown = dogs.filter((e) => {
+        e.breed === "UNKNOWN";
+      });
+      const shihtzu = dogs.filter((e) => {
+        e.breed === "Shih Tzu";
+      });
+      const chihuahua = dogs.filter((e) => {
+        e.breed === "Chihuahua";
+      });
+      this.chartData = {
+        labels: ["Pit Bull", "Unknown", "Shih Tzu", "Chihuahua"],
+        datasets: [
+          {
+            backgroundColor: ["#41B883", "#E46651", "#00D8FF", "#a35cff"],
+            data: [
+              pitbull.length,
+              unknown.length,
+              shihtzu.length,
+              chihuahua.length,
+            ],
+          },
+        ],
+      };
+      this.load = true;
+      console.log(this.load);
+    } catch (e) {
+      console.log(e);
+    }
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
