@@ -3,13 +3,21 @@
 <template>
   <div class="about">
     <h1>Pitbull Data</h1>
+    <h3>Least Homicidal Pitbull</h3>
+    <img
+      class="present"
+      alt="A Picture of A War Criminal is Shown"
+      src="https://pbs.twimg.com/media/FpwPu39aIAAUR1H.jpg"
+    />
   </div>
-  <Doughnut
-    v-if="load"
-    id="my-chart-id"
-    :options="chartOptions"
-    :data="chartData"
-  />
+  <div class="chart">
+    <Doughnut
+      v-if="load"
+      id="my-chart-id"
+      :options="chartOptions"
+      :data="chartData"
+    />
+  </div>
 </template>
 <script>
 import { Doughnut } from "vue-chartjs";
@@ -92,4 +100,17 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.present {
+  height: 20rem;
+  width: 20rem;
+  border: solid black 1rem;
+}
+.chart {
+  background: white;
+  height: 30rem;
+  width: 30rem;
+  border: solid white 1rem;
+  border-radius: 2rem;
+}
+</style>

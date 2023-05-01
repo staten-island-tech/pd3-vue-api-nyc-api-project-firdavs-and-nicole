@@ -2,7 +2,9 @@
 
 <template>
   <router-link to="/">Pitbulls</router-link>
-  <router-link to="/about">About</router-link>
+  <div></div>
+  <router-link to="/about">Moar Pitbulls</router-link>
+
   <router-view></router-view>
 </template>
 

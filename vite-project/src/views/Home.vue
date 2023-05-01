@@ -1,4 +1,7 @@
 <template>
+  <div class="about">
+    <h1>Age of Dogs that bit people</h1>
+  </div>
   <Bar v-if="load" id="my-chart-id" :options="chartOptions" :data="chartData" />
 </template>
 
