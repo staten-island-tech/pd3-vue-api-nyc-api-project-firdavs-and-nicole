@@ -2,7 +2,7 @@
 
 <template>
   <div class="about">
-    <h1>About</h1>
+    <h1>Pitbull Data</h1>
   </div>
   <Doughnut
     v-if="load"
