@@ -38,26 +38,45 @@ export default {
         "https://data.cityofnewyork.us/resource/rsgh-akpg.json"
       );
       const dogs = await response.json();
-      const pitbull = dogs.filter((e) => {
-        e.breed === "Pit Bull";
+      const filtered = dogs.filter((x) => {
+        return x.breed !== undefined;
       });
-      const unknown = dogs.filter((e) => {
-        e.breed === "UNKNOWN";
+      const pitbull = filtered.filter((e) => {
+        return e.breed.includes("Pit Bull");
       });
-      const shihtzu = dogs.filter((e) => {
-        e.breed === "Shih Tzu";
+      const unknown = filtered.filter((e) => {
+        return e.breed.includes("UNKNOWN");
       });
-      const chihuahua = dogs.filter((e) => {
-        e.breed === "Chihuahua";
+      const shihtzu = filtered.filter((e) => {
+        return e.breed.includes("Shih Tzu");
+      });
+      const chihuahua = filtered.filter((e) => {
+        return e.breed.includes("Chihuahua");
+      });
+      const german = filtered.filter((e) => {
+        return e.breed.includes("German Shepherd");
       });
       this.chartData = {
-        labels: ["Pit Bull", "Unknown", "Shih Tzu", "Chihuahua"],
+        labels: [
+          "Pit Bull",
+          "Unknown",
+          "German Shepherd",
+          "Shih Tzu",
+          "Chihuahua",
+        ],
         datasets: [
           {
-            backgroundColor: ["#41B883", "#E46651", "#00D8FF", "#a35cff"],
+            backgroundColor: [
+              "#41B883",
+              "#E46651",
+              "#fff533",
+              "#00D8FF",
+              "#a35cff",
+            ],
             data: [
               pitbull.length,
               unknown.length,
+              german.length,
               shihtzu.length,
               chihuahua.length,
             ],
