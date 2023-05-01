@@ -2,7 +2,19 @@
   <div class="about">
     <h1>Age of Dogs that bit people</h1>
   </div>
-  <Bar v-if="load" id="my-chart-id" :options="chartOptions" :data="chartData" />
+  <img
+    class="present"
+    alt="A picture of Andrew Tate"
+    src="https://m.media-amazon.com/images/I/51BT+vl+KYL.jpg"
+  />
+  <div class="chart">
+    <Bar
+      v-if="load"
+      id="my-chart-id"
+      :options="chartOptions"
+      :data="chartData"
+    />
+  </div>
 </template>
 
 <script>
@@ -110,4 +122,17 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.present {
+  height: 20rem;
+  width: 20rem;
+  border: solid black 1rem;
+}
+.chart {
+  background: white;
+  max-height: 50rem;
+  max-width: 50rem;
+  border: solid white 1rem;
+  border-radius: 2rem;
+}
+</style>
