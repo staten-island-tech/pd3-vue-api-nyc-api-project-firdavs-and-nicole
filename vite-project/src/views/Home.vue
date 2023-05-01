@@ -4,7 +4,7 @@
   </div>
   <img
     class="present"
-    alt="A picture of Andrew Tate"
+    alt="A picture of Pitbull the rapper"
     src="https://m.media-amazon.com/images/I/51BT+vl+KYL.jpg"
   />
   <div class="chart">

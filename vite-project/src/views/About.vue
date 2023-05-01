@@ -6,7 +6,7 @@
     <h3>Least Homicidal Pitbull</h3>
     <img
       class="present"
-      alt="A Picture of A War Criminal is Shown"
+      alt="A Picture of Pit Bull saying 'Waiter! Waiter! More toddlers please!'"
       src="https://pbs.twimg.com/media/FpwPu39aIAAUR1H.jpg"
     />
   </div>
