@@ -4,25 +4,25 @@ import DataCard from "./views/DataCard.vue";
 
 <template>
   <div class="holder">
-    <router-link class="link" to="/">Home</router-link>
-    <router-link class="link" to="/doughnut">Pitbulls</router-link>
-    <div></div>
-    <router-link class="link" to="/bar">Moar Pitbulls</router-link>
+    <div>
+      <router-link class="link" to="/">Home</router-link>
+      <router-link class="link" to="/doughnut">Pitbulls</router-link>
+      <router-link class="link" to="/bar">Moar Pitbulls</router-link>
+    </div>
   </div>
   <router-view></router-view>
-  <DataCard></DataCard>
 </template>
 
 <style scoped>
 .holder {
   display: flex;
+  flex-wrap: wrap;
   text-align: center;
   justify-content: center;
   background: white;
-  max-height: 20rem;
-  max-width: 20rem;
   border: solid white 1rem;
   border-radius: 1rem;
+  margin: auto;
 }
 .link {
   margin: 0 1rem;
