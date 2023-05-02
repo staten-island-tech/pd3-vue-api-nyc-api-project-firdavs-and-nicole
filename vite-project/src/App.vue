@@ -1,17 +1,19 @@
-<script setup></script>
+<script setup>
+import DataCard from "./views/DataCard.vue";
+</script>
 
 <template>
   <div class="holder">
-    <router-link class="link" to="/">Pitbulls</router-link>
+    <router-link class="link" to="/">Home</router-link>
+    <router-link class="link" to="/doughnut">Pitbulls</router-link>
     <div></div>
-    <router-link class="link" to="/about">Moar Pitbulls</router-link>
+    <router-link class="link" to="/bar">Moar Pitbulls</router-link>
   </div>
   <router-view></router-view>
+  <DataCard></DataCard>
 </template>
 
 <style scoped>
-router-link {
-}
 .holder {
   display: flex;
   text-align: center;
