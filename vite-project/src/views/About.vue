@@ -13,7 +13,7 @@
   <div class="chart">
     <Doughnut
       v-if="load"
-      id="my-chart-id"
+      id="my-chart"
       :options="chartOptions"
       :data="chartData"
     />
@@ -112,5 +112,9 @@ export default {
   width: 30rem;
   border: solid white 1rem;
   border-radius: 2rem;
+}
+.chart {
+  margin: auto;
+  align-items: center;
 }
 </style>

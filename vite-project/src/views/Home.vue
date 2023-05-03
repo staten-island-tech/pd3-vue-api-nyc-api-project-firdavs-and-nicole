@@ -129,10 +129,8 @@ export default {
   border: solid black 1rem;
 }
 .chart {
-  background: white;
-  max-height: 50rem;
-  max-width: 50rem;
-  border: solid white 1rem;
-  border-radius: 2rem;
+  margin: auto;
+  align-items: center;
+  max-width: 50%;
 }
 </style>

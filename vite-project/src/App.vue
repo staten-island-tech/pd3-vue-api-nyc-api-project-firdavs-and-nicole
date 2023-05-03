@@ -15,17 +15,13 @@ import DataCard from "./views/DataCard.vue";
 
 <style scoped>
 .holder {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  justify-content: center;
-  background: white;
-  border: solid white 1rem;
-  border-radius: 1rem;
   margin: auto;
+  max-width: 500px;
+  padding: 1rem 0;
 }
 .link {
   margin: 0 1rem;
+  font-size: large;
 }
 
 .logo {

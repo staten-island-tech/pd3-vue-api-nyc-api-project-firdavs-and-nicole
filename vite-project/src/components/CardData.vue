@@ -23,8 +23,21 @@ export default {
 <style scoped>
 .container {
   background-color: white;
+  width: 20vw;
   padding: 1vh;
   margin: 1rem;
-  border-radius: 2rem;
+  border: 2px solid grey;
+  animation: 0.7s ease-out 0s slideIn;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
