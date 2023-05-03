@@ -7,7 +7,7 @@
     alt="A picture of Pitbull the rapper"
     src="https://m.media-amazon.com/images/I/51BT+vl+KYL.jpg"
   />
-  <div class="chart">
+  <div v-if="Selected" class="chart">
     <Bar
       v-if="load"
       id="my-chart-id"
@@ -15,6 +15,15 @@
       :data="chartData"
     />
   </div>
+  <div v-else="Selected" class="chart">
+    <Bar
+      v-if="load"
+      id="my-chart-id"
+      :options="chartOptions"
+      :data="chartData"
+    />
+  </div>
+  <button class="button" v:on-click="Print">Change Chart</button>
 </template>
 
 <script>
