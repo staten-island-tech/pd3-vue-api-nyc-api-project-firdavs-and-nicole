@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
-import About from "../views/About.vue";
+import ActualBar from "../views/Home.vue";
+import BarChart from "../views/About.vue";
+import DataCard from "../views/DataCard.vue";
 
 const routes = [
-  { path: "/", name: "Home", component: About },
-  { path: "/about", name: "About", component: Home },
+  { path: "/doughnut", name: "Doughnut", component: BarChart },
+  { path: "/bar", name: "Bar", component: ActualBar },
+  { path: "/", name: "Data", component: DataCard },
 ];
 const router = createRouter({
   history: createWebHistory(),
