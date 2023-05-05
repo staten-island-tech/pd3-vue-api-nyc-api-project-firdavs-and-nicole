@@ -7,7 +7,7 @@
     alt="A picture of Pitbull the rapper"
     src="https://m.media-amazon.com/images/I/51BT+vl+KYL.jpg"
   />
-  <div v-if="Selected" class="chart">
+  <div class="chart">
     <Bar
       v-if="load"
       id="my-chart-id"
@@ -15,15 +15,8 @@
       :data="chartData"
     />
   </div>
-  <div v-else="Selected" class="chart">
-    <Bar
-      v-if="load"
-      id="my-chart-id"
-      :options="chartOptions"
-      :data="chartData"
-    />
-  </div>
-  <button class="button" v:on-click="Print">Change Chart</button>
+
+  <button class="button" @click="Chart1">Change Chart</button>
 </template>
 
 <script>
@@ -60,7 +53,40 @@ export default {
       },
     };
   },
+  methods: {
+    Chart1: async function () {
+      try {
+        const response = await fetch(
+          "https://data.cityofnewyork.us/resource/rsgh-akpg.json"
+        );
+        const dogs = await response.json();
+        const filtered = dogs.filter((x) => {
+          return x.spayneuter !== undefined;
+        });
+        const spay = filtered.filter((e) => {
+          return e.spayneuter.includes(true);
+        });
+        const neuter = filtered.filter((e) => {
+          return e.spayneuter.includes(false);
+        });
 
+        this.chartData = {
+          labels: [Spayed / Neutered, Genitals],
+          datasets: [
+            {
+              label: "Balls or No Balls",
+              backgroundColor: ["#E46651"],
+              data: [spay.length, neuter.length],
+            },
+          ],
+        };
+        this.load = true;
+        console.log(this.load);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+  },
   async mounted() {
     try {
       const response = await fetch(
